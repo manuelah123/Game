@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mario Bros</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="game-shell">
+
+  <header class="top-bar">
+    <h1>⭐ Mario Bros ⭐</h1>
+    <p class="hint">← → Moverse &nbsp;|&nbsp; ↑ / SPACE Saltar &nbsp;|&nbsp; P Pausar</p>
+  </header>
+
+  <!-- HUD -->
+  <section class="hud hidden" id="hud">
+    <div class="hud-item">
+      <span class="hud-label">VIDAS</span>
+      <div class="hud-hearts" id="hudHearts"></div>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">PUNTAJE</span>
+      <span class="hud-value" id="puntaje">0</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">NIVEL</span>
+      <span class="hud-value" id="nivel">1</span>
+    </div>
+    <div class="hud-controls">
+      <button id="btnPause" class="ctrl-btn" title="Pausar (P)">⏸</button>
+      <button id="btnMute"  class="ctrl-btn" title="Silenciar">🔊</button>
+    </div>
+  </section>
+
+  <div class="canvas-wrapper">
+    <canvas id="gameCanvas" width="900" height="500"></canvas>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div class="overlay" id="menuOverlay">
+      <div class="card card-menu">
+        <div class="menu-logo">🍄 MARIO BROS 🍄</div>
+        <div class="menu-subtitle">SUPER EDITION</div>
+        <div class="menu-score-box">
+          <span class="score-label">✦ PUNTAJE ACUMULADO ✦</span>
+          <span class="score-big" id="menuScore">000000</span>
+        </div>
+        <span class="select-label">— ELIGE TU NIVEL —</span>
+        <div id="levelButtons" class="level-grid"></div>
+      </div>
+    </div>
+
+    <!-- PAUSA -->
+    <div class="overlay hidden" id="pauseOverlay">
+      <div class="card card-pause">
+        <span class="pause-icon">⏸</span>
+        <h2 class="pause-title">PAUSA</h2>
+        <div class="actions">
+          <button id="btnResume"    class="btn btn-green">▶ CONTINUAR</button>
+          <button id="btnPauseMenu" class="btn btn-ghost">🏠 MENÚ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIVEL COMPLETADO -->
+    <div class="overlay hidden" id="levelCompleteOverlay">
+      <div class="card card-complete">
+        <span class="complete-icon">🏆</span>
+        <h2 class="complete-title">¡NIVEL COMPLETADO!</h2>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-l">NIVEL</span><span class="stat-v" id="statNivel">1</span></div>
+          <div class="stat"><span class="stat-l">PUNTAJE</span><span class="stat-v" id="statPuntaje">0</span></div>
+          <div class="stat"><span class="stat-l">VIDAS</span><span class="stat-v" id="statVidas">❤️❤️❤️</span></div>
+        </div>
+        <div class="actions">
+          <button id="btnContinue"     class="btn btn-green">▶ SIGUIENTE NIVEL</button>
+          <button id="btnCompleteMenu" class="btn btn-ghost">🏠 MENÚ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUEGO COMPLETADO -->
+    <div class="overlay hidden" id="gameCompletedOverlay">
+      <div class="card card-completed">
+        <span class="complete-icon">🎉</span>
+        <h2 class="complete-title" style="color:#f9d22b;">¡JUEGO COMPLETADO!</h2>
+        <p class="complete-sub">¡Superaste todos los niveles!</p>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-l">PUNTAJE TOTAL</span><span class="stat-v" id="finalScore">0</span></div>
+        </div>
+        <div class="actions">
+          <button id="btnCompletedMenu" class="btn btn-green">🏠 MENÚ PRINCIPAL</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div class="overlay hidden" id="gameOverOverlay">
+      <div class="card card-gameover">
+        <span class="go-icon">💀</span>
+        <h2 class="go-title">GAME OVER</h2>
+        <div class="actions">
+          <button id="btnRestartLevel" class="btn btn-red">↺ REINTENTAR</button>
+          <button id="btnBackMenu"     class="btn btn-ghost">🏠 MENÚ</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- canvas-wrapper -->
+</main>
+<script src="app.js"></script>
+</body>
+</html>
