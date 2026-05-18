@@ -69,3 +69,8 @@ Abrir **http://localhost:8080** en el navegador.
 - **Scroll cámara**: `cameraX` con lerp suave en JS
 - **Música**: Web Audio API procedural 8-bit
 
+# Autor
+**Manuela Henao Bedoya**
+
+# Licencia
+**Este proyecto está bajo la licencia MIT.**
